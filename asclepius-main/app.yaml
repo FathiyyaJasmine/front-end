@@ -1,0 +1,21 @@
+runtime: nodejs16
+instance_class: F1
+env_variables:
+  NODE_ENV: production
+  BASE_URL: "https://asclepius-804778489236.asia-southeast2.run.app"
+
+handlers:
+  - url: /
+    static_files: index.html
+    upload: index.html
+  - url: /src
+    static_dir: src
+  - url: /favicon.png
+    static_files: favicon.png
+    upload: favicon.png
+  - url: /.* 
+    static_files: index.html
+    upload: index.html
+
+inbound_services:
+  - warmup
